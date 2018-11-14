@@ -14,7 +14,8 @@ public class SpringbootRedisApplicationTests {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
     @Autowired
-    private RedisTemplate<Object,Object> redisTemplate;
+    @SuppressWarnings("")
+    private RedisTemplate<Object,Object> billredisTemplate;
     @Test
     public void stringTest() {
         stringRedisTemplate.opsForValue().set("k5", "Springboot redis");
@@ -22,7 +23,7 @@ public class SpringbootRedisApplicationTests {
     }
     @Test
     public void objectTest() {
-        redisTemplate.opsForValue().set("yuanlin", new User(1,"yuanlin","jiayou"));
-        System.out.println(redisTemplate.opsForValue().get("yuanlin"));
+        billredisTemplate.opsForValue().set("yuanlin", new User(1,"yuanlin","jiayou"));
+        System.out.println(billredisTemplate.opsForValue().get("yuanlin"));
     }
 }
